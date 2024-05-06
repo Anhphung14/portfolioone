@@ -1,32 +1,22 @@
 export const navLinksdata = [
   {
     _id: 1001,
-    title: "Home",
-    link: "home",
+    title: "Trang chủ",
+    link: "/",
   },
   {
     _id: 1002,
-    title: "Features",
-    link: "features",
+    title: "Lĩnh vực",
+    link: "fields",
   },
   {
     _id: 1003,
-    title: "Projects",
-    link: "projects",
+    title: "Tin tức",
+    link: "news",
   },
   {
     _id: 1004,
-    title: "Resume",
-    link: "resume",
-  },
-  {
-    _id: 1005,
-    title: "Testimonial",
-    link: "testimonial",
-  },
-  {
-    _id: 1006,
-    title: "Contact",
+    title: "Liên hệ",
     link: "contact",
   },
 ];
