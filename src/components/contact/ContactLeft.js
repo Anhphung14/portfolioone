@@ -4,7 +4,7 @@ import nlthContact from "../../assets/images/nlth-contact.jpg";
 
 const ContactLeft = () => {
   return (
-    <div className="w-full lgl:w-[35%] h-full  bg-gradient-to-tr from-purple-100 to-yellow-200  p-4 lgl:p-8 rounded-lg  flex flex-col gap-8 justify-center">
+    <div className="w-full lgl:w-[35%] h-full  bg-gradient-to-br from-yellow-200 via-pink-200 to-blue-400 p-4 lgl:p-8 rounded-lg  flex flex-col gap-8 justify-center">
       <img
         className="w-full h-96 object-cover rounded-lg mb-2"
         src={nlthContact}

@@ -5,11 +5,13 @@ import { MdClose } from "react-icons/md";
 import { FaFacebookF, FaYoutube, FaInstagram } from "react-icons/fa";
 import { logo } from "../../assets/index";
 import { navLinksdata } from "../../constants";
-import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [isHome, setIsHome] = useState(false);
+
+  const colors = ["red", "blue", "green", "orange"];
 
   useEffect(() => {
     const path = window.location.pathname;
@@ -24,36 +26,40 @@ const Navbar = () => {
     setShowMenu(false);
   };
 
-  const LogoLink = isHome ? ScrollLink : RouterLink;
+  const handleLinkClick = (link) => {
+    if (!isHome) {
+      handleCloseMenu();
+      window.location.href = "/";
+    }
+  };
 
   return (
     <div className="w-full h-20 sticky top-0 z-50 bg-[#ffff] pr-6 flex justify-between items-center font-titleFont">
       <div className="pl-8 w-32">
-        <LogoLink to="/" spy={true} smooth={true} duration={500}>
+        <ScrollLink to="/" spy={true} smooth={true} duration={500}>
           <img src={logo} alt="logo" />
-        </LogoLink>
+        </ScrollLink>
       </div>
       <div>
         <ul className="hidden mdl:inline-flex items-center gap-6 lg:gap-10">
           {navLinksdata.map(({ _id, title, link }) => (
             <li
-              className="text-base font-normal text-[#1a1c24] tracking-wide cursor-pointer hover:text-designColor duration-300"
+              className="text-xl font-normal text-[#1a1c24] tracking-wide cursor-pointer hover:text-designColor duration-300"
               key={_id}>
-              {isHome ? (
-                <ScrollLink
-                  to={link}
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={500}
-                  onClick={handleCloseMenu}>
-                  {title}
-                </ScrollLink>
-              ) : (
-                <RouterLink to={link} onClick={handleCloseMenu}>
-                  {title}
-                </RouterLink>
-              )}
+              <ScrollLink
+                to={link}
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                onClick={() => handleLinkClick(link)}>
+                {title}
+              </ScrollLink>
+              <hr
+                style={{
+                  borderTop: `2px solid ${colors[_id % colors.length]}`,
+                }}
+              />
             </li>
           ))}
         </ul>
@@ -66,9 +72,9 @@ const Navbar = () => {
           <div className="w-[80%] h-screen overflow-scroll absolute top-0 left-0 bg-gray-900 p-4 scrollbar-hide">
             <div className="flex flex-col gap-8 py-2 relative">
               <div>
-                <LogoLink to="home" spy={true} smooth={true} duration={500}>
+                <ScrollLink to="/" spy={true} smooth={true} duration={500}>
                   <img className="w-32" src={logo} alt="logo" />
-                </LogoLink>
+                </ScrollLink>
                 <p className="text-white">Nguyễn Lê Thanh Hải</p>
                 <h1 className="text-xs pt-1 text-white">
                   Th.s Đạo diễn - Biên đạo
@@ -79,21 +85,15 @@ const Navbar = () => {
                   <li
                     key={item._id}
                     className="text-base font-normal text-gray-400 tracking-wide cursor-pointer hover:text-designColor duration-300">
-                    {isHome ? (
-                      <ScrollLink
-                        to={item.link}
-                        spy={true}
-                        smooth={true}
-                        offset={-70}
-                        duration={500}
-                        onClick={handleCloseMenu}>
-                        {item.title}
-                      </ScrollLink>
-                    ) : (
-                      <RouterLink to={item.link} onClick={handleCloseMenu}>
-                        {item.title}
-                      </RouterLink>
-                    )}
+                    <ScrollLink
+                      to={item.link}
+                      spy={true}
+                      smooth={true}
+                      offset={-70}
+                      duration={500}
+                      onClick={() => handleLinkClick(item.link)}>
+                      {item.title}
+                    </ScrollLink>
                   </li>
                 ))}
               </ul>

@@ -52,7 +52,7 @@ const Contact = () => {
       <div className="w-full">
         <div className="w-full h-auto flex flex-col lgl:flex-row justify-between">
           <ContactLeft />
-          <div className="w-full lgl:w-[60%] h-full py-10  bg-gradient-to-tr from-purple-100 to-yellow-200 flex flex-col gap-8 p-4 lgl:p-8 rounded-lg ">
+          <div className="w-full lgl:w-[60%] h-full py-10  bg-gradient-to-br from-yellow-200 via-pink-200 to-blue-400 flex flex-col gap-8 p-4 lgl:p-8 rounded-lg ">
             <form className="w-full flex flex-col gap-4 lgl:gap-6 py-2 lgl:py-5">
               {errMsg && (
                 <p className="py-3 bg-red-100 text-center rounded-sm text-red-500 text-xl tracking-wide animate-bounce">

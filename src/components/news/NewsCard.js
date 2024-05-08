@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ProjectsCard = ({ id, title, des, src }) => {
+const NewsCard = ({ id, title, des, src }) => {
   return (
     <div className="w-full p-4 xl:px-12 h-auto xl:py-10 rounded-lg shadow-xl flex flex-col bg-gradient-to-tr from-purple-100 to-yellow-200 transition-colors duration-1000">
       <div className="w-full h-[80%] overflow-hidden rounded-lg">
@@ -34,4 +34,4 @@ const ProjectsCard = ({ id, title, des, src }) => {
   );
 };
 
-export default ProjectsCard;
+export default NewsCard;

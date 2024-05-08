@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <div>
       <Navbar />
-      <div className="w-full h-auto bg-gradient-to-br from-yellow-200 to-yellow-400 text-lightText">
+      <div className="w-full h-auto bg-gradient-to-br from-yellow-300 via-pink-300 to-blue-500 text-lightText">
         <Banner />
       </div>
       <div className="max-w-screen-xl mx-auto">
